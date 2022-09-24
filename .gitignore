@@ -9,6 +9,7 @@ ormconfig.json
 dist
 commands.txt
 ormconfig.dev.json
+ormconfig.prod.json
 
 uploads/*
 !uploads/.gitkeep
