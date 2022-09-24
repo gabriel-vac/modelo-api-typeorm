@@ -13,7 +13,7 @@ class CreateProjectService {
     const projectExists = await projectRepository.findByName(name);
 
     if (projectExists) {
-      throw new AppError('There is already one project with this name');
+      throw new AppError('There is already one product with this name');
     }
 
     const project = projectRepository.create({
