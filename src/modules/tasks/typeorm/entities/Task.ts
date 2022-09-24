@@ -17,7 +17,7 @@ class Task {
   @Column()
   responsible: string;
 
-  @Column('date')
+  @Column({ type: 'date', nullable: true })
   deadline: Date;
 
   @Column()

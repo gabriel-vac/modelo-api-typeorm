@@ -13,7 +13,7 @@ tasksRouter.post(
     [Segments.BODY]: {
       name: Joi.string().required(),
       responsible: Joi.string().allow(''),
-      deadline: Joi.date(),
+      deadline: Joi.date().optional(),
       projectId: Joi.string().uuid().required(),
     },
   }),

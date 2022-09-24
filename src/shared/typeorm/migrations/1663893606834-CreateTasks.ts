@@ -28,6 +28,7 @@ export class CreateTasks1663893606834 implements MigrationInterface {
           {
             name: 'deadline',
             type: 'date',
+            isNullable: true,
           },
           {
             name: 'projectId',
