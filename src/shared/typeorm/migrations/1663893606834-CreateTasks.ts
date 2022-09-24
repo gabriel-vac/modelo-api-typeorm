@@ -18,7 +18,7 @@ export class CreateTasks1663893606834 implements MigrationInterface {
             generationStrategy: 'uuid',
           },
           {
-            name: 'title',
+            name: 'name',
             type: 'varchar',
           },
           {

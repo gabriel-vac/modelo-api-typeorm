@@ -5,10 +5,18 @@ import { TaskRepository } from '../typeorm/repositores/TaskRepository';
 
 interface IRequest {
   name: string;
+  responsible: string;
+  deadline: Date;
+  projectId: string;
 }
 
 class CreateTaskService {
-  public async execute({ name }: IRequest): Promise<Task> {
+  public async execute({
+    name,
+    responsible,
+    deadline,
+    projectId,
+  }: IRequest): Promise<Task> {
     const taskRepository = getCustomRepository(TaskRepository);
     const taskExists = await taskRepository.findByName(name);
 
@@ -18,6 +26,9 @@ class CreateTaskService {
 
     const task = taskRepository.create({
       name,
+      responsible,
+      deadline,
+      projectId,
     });
 
     await taskRepository.save(task);

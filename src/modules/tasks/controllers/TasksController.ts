@@ -14,22 +14,27 @@ export default class TasksController {
   }
 
   public async create(request: Request, response: Response): Promise<Response> {
-    const { name } = request.body;
+    const { name, responsible, deadline, projectId } = request.body;
 
     const createTask = new CreateTaskService();
 
-    const task = await createTask.execute({ name });
+    const task = await createTask.execute({
+      name,
+      responsible,
+      deadline,
+      projectId,
+    });
 
     return response.json(task);
   }
 
   public async update(request: Request, response: Response): Promise<Response> {
     const { id } = request.params;
-    const { name } = request.body;
+    const { name, responsible, deadline } = request.body;
 
     const updateTask = new UpdateTaskService();
 
-    const task = await updateTask.execute({ id, name });
+    const task = await updateTask.execute({ id, name, responsible, deadline });
 
     return response.json(task);
   }

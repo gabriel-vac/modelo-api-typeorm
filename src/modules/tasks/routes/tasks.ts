@@ -12,6 +12,9 @@ tasksRouter.post(
   celebrate({
     [Segments.BODY]: {
       name: Joi.string().required(),
+      responsible: Joi.string().allow(''),
+      deadline: Joi.date(),
+      projectId: Joi.string().uuid().required(),
     },
   }),
   tasksController.create,
@@ -25,6 +28,9 @@ tasksRouter.put(
     },
     [Segments.BODY]: {
       name: Joi.string().required(),
+      responsible: Joi.string().allow(''),
+      deadline: Joi.date(),
+      projectId: Joi.string().uuid().required(),
     },
   }),
   tasksController.update,
