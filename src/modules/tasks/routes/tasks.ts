@@ -5,7 +5,15 @@ import TasksController from '../controllers/TasksController';
 const tasksRouter = Router();
 const tasksController = new TasksController();
 
-tasksRouter.get('/', tasksController.index);
+tasksRouter.get(
+  '/:id',
+  celebrate({
+    [Segments.PARAMS]: {
+      id: Joi.string().uuid().required(),
+    },
+  }),
+  tasksController.index,
+);
 
 tasksRouter.post(
   '/',

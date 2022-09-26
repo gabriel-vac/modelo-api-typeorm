@@ -7,8 +7,9 @@ import UpdateTaskService from '../services/UpdateTaskService';
 export default class TasksController {
   public async index(request: Request, response: Response): Promise<Response> {
     const listTasks = new ListTasksService();
+    const { id } = request.params;
 
-    const tasks = await listTasks.execute();
+    const tasks = await listTasks.execute({ projectId: id });
 
     return response.json(tasks);
   }
