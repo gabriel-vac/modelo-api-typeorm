@@ -7,6 +7,7 @@ interface IRequest {
   name: string;
   responsible: string;
   deadline: Date;
+  done: boolean;
   projectId: string;
 }
 
@@ -15,6 +16,7 @@ class CreateTaskService {
     name,
     responsible,
     deadline,
+    done,
     projectId,
   }: IRequest): Promise<Task> {
     const taskRepository = getCustomRepository(TaskRepository);
@@ -28,6 +30,7 @@ class CreateTaskService {
       name,
       responsible,
       deadline,
+      done,
       projectId,
     });
 

@@ -31,6 +31,10 @@ export class CreateTasks1663893606834 implements MigrationInterface {
             isNullable: true,
           },
           {
+            name: 'done',
+            type: 'boolean',
+          },
+          {
             name: 'projectId',
             type: 'varchar',
           },

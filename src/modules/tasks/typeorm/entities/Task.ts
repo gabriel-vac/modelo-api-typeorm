@@ -20,6 +20,9 @@ class Task {
   @Column({ type: 'date', nullable: true })
   deadline: Date;
 
+  @Column({ type: 'boolean' })
+  done: boolean;
+
   @Column()
   projectId: string;
 

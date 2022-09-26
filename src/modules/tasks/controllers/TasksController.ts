@@ -15,7 +15,7 @@ export default class TasksController {
   }
 
   public async create(request: Request, response: Response): Promise<Response> {
-    const { name, responsible, deadline, projectId } = request.body;
+    const { name, responsible, deadline, done, projectId } = request.body;
 
     const createTask = new CreateTaskService();
 
@@ -23,6 +23,7 @@ export default class TasksController {
       name,
       responsible,
       deadline,
+      done,
       projectId,
     });
 
@@ -31,11 +32,17 @@ export default class TasksController {
 
   public async update(request: Request, response: Response): Promise<Response> {
     const { id } = request.params;
-    const { name, responsible, deadline } = request.body;
+    const { name, responsible, deadline, done } = request.body;
 
     const updateTask = new UpdateTaskService();
 
-    const task = await updateTask.execute({ id, name, responsible, deadline });
+    const task = await updateTask.execute({
+      id,
+      name,
+      responsible,
+      deadline,
+      done,
+    });
 
     return response.json(task);
   }
