@@ -13,3 +13,4 @@ ormconfig.prod.json
 
 uploads/*
 !uploads/.gitkeep
+ormconfiga.json

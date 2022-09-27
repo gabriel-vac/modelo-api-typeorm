@@ -6,6 +6,7 @@ import AppError from '@shared/errors/AppError';
 import { errors } from 'celebrate';
 import routes from './routes';
 import '@shared/typeorm';
+import { config } from '../../config/config';
 
 const app = express();
 
@@ -36,4 +37,6 @@ app.use(
 );
 
 // eslint-disable-next-line no-console
-app.listen(3333, () => console.log('Server is running on port 3333'));
+app.listen(config.server.port, () =>
+  console.log(`Server is running on port ${config.server.port}`),
+);
