@@ -27,6 +27,7 @@ app.use(
       });
     }
 
+    // eslint-disable-next-line no-console
     console.log(error);
 
     return response.status(500).json({
@@ -36,7 +37,7 @@ app.use(
   },
 );
 
-// eslint-disable-next-line no-console
 app.listen(config.server.port, () =>
+  // eslint-disable-next-line no-console
   console.log(`Server is running on port ${config.server.port}`),
 );
